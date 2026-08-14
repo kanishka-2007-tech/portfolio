@@ -49,24 +49,6 @@ The `dist/` folder produced by `npm run build` is a static site and can be deplo
    - **Output Directory:** `dist`
 4. Click **Deploy**.
 
-### Netlify
-
-1. Push this project to a GitHub repository.
-2. Go to [netlify.com](https://netlify.com) and create a new site from Git.
-3. Set:
-   - **Build Command:** `npm run build`
-   - **Publish Directory:** `dist`
-4. Click **Deploy site**.
-
-### GitHub Pages
-
-1. Build the project: `npm run build`
-2. Deploy the contents of `dist/` to the `gh-pages` branch, e.g. using the [`gh-pages`](https://www.npmjs.com/package/gh-pages) package:
-   ```
-   npm install --save-dev gh-pages
-   npx gh-pages -d dist
-   ```
-3. Enable GitHub Pages for the `gh-pages` branch in your repository settings.
 
 ### Any static host (Cloudflare Pages, Firebase Hosting, S3, etc.)
 
