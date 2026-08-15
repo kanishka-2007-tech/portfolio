@@ -1,4 +1,4 @@
-import { Skill, Project, ExperienceItem, AchievementItem, Certification } from '../types';
+import { Skill, Project, ExperienceItem, AchievementItem, Certification, Hackathon } from '../types';
 
 export const SKILLS_DATA: Skill[] = [
   {
@@ -116,73 +116,6 @@ export const PROJECTS_DATA: Project[] = [
       { label: 'Active Users', value: '4,500+' },
       { label: 'Latency', value: '< 120ms' }
     ]
-  },
-  {
-    id: 'distributed-core-api',
-    title: 'Distributed Core API',
-    subtitle: 'Scalable Microservice Gateway & Infrastructure',
-    description: 'A scalable microservices architecture handling millions of daily requests with 99.99% uptime and comprehensive fault tolerance.',
-    fullDescription: 'An enterprise-ready distributed API gateway engineered in Node.js and PostgreSQL. Features dynamic load balancing, circuit breakers, asynchronous task queues with Redis, and automated failover recovery for high-concurrency cloud workloads.',
-    tags: ['Node.js', 'PostgreSQL', 'Express', 'Redis'],
-    category: 'APIs & Systems',
-    isCodeSnippet: true,
-    codeSnippet: `const initializeCore = async () => {
-  await system.boot({
-    mode: 'distributed',
-    nodes: 4,
-    failover: true
-  });
-  
-  return Core.ready();
-};`,
-    linkText: 'Github Repo',
-    linkType: 'github',
-    features: [
-      'Automatic node health monitoring & active cluster failover',
-      'Distributed rate limiting with token-bucket Redis implementation',
-      'End-to-end request tracing via OpenTelemetry span IDs',
-      'Zero-downtime rolling deployments'
-    ],
-    architecture: [
-      'Node.js cluster worker pool utilizing multi-core parallelism',
-      'PostgreSQL connection pooling with Prisma/Drizzle ORM',
-      'Docker container orchestration with Kubernetes manifests',
-      'Prometheus and Grafana metrics instrumentation'
-    ],
-    stats: [
-      { label: 'Requests/sec', value: '15,000+' },
-      { label: 'Failover Time', value: '< 2.4s' },
-      { label: 'Code Coverage', value: '98.5%' }
-    ]
-  },
-  {
-    id: 'aura-fintech-app',
-    title: 'Aura FinTech App',
-    subtitle: 'Next-Gen Mobile Banking Solution',
-    description: 'A secure, cross-platform mobile banking solution featuring biometric authentication and complex state management.',
-    fullDescription: 'Aura FinTech delivers an ultra-smooth, high-security mobile banking experience. Built with Flutter and powered by a GraphQL API backend, it includes real-time multi-currency transaction logging, biometric authentication, virtual debit card controls, and AI spending insights.',
-    tags: ['Flutter', 'GraphQL', 'Node.js', 'Biometrics'],
-    category: 'Mobile & FinTech',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDAE07WfTz-ZbkcZ8zQlgfiqaGF5xVNSSPMuOF_AFdDJPzecmz2FsI7kQVs_DgGI0wDdoZMC0dOrBox_DKwBtSSXMjntPZNG-LEUqvyrBEjgZBIlIG8a-f25wRZRIJIMsOn-3_70qAfDwDI3lIOskQd8YeelVLWzEG87gt9d2X5s9CaCV0nlb9Bqvb1a0Bftkm2n_04EkJ3hfvjRiafeVYcJWnfjkxiVSAuI1D5DrmvrySZqSmp680X',
-    linkText: 'App Store',
-    linkType: 'app-store',
-    features: [
-      'Hardware-backed FaceID / TouchID biometric login',
-      'Instant GraphQL subscriptions for real-time transaction updates',
-      'Interactive card customization & instant card freeze functionality',
-      'End-to-end encrypted balance transfers & QR payments'
-    ],
-    architecture: [
-      'Flutter reactive UI components using BLoC state management pattern',
-      'GraphQL Apollo client with normalized local cache',
-      'Node.js secure transaction server with HSM payload signing',
-      'Biometric hardware key vault integration'
-    ],
-    stats: [
-      { label: 'Security Grade', value: 'A+' },
-      { label: 'Transactions', value: '$2.8M+' },
-      { label: 'Rating', value: '4.9/5.0' }
-    ]
   }
 ];
 
@@ -192,7 +125,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     title: 'GirlScript Summer of Code',
     role: 'Open Source Contributor',
     company: 'GirlScript Foundation',
-    duration: '2023 - Present',
+    duration: 'May 2026 - Aug 2026',
     description: 'Contributed to open-source projects during the GirlScript Summer of Code, collaborating with developers worldwide to improve codebase quality and add new features.',
     highlights: [
       'Submitted 15+ merged Pull Requests across web development and developer tool repositories',
@@ -210,8 +143,8 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
     title: 'Google Cloud Facilitator Program',
     role: 'Participant',
     organization: 'Google Cloud',
-    duration: '2023 - 2024',
-    date: '2023 - 2024',
+    duration: 'Jul 2026 - Sept 2026',
+    date: 'Jul 2026 - Sept 2026',
     description: 'Successfully completed the Google Cloud Facilitator Program, gaining hands-on experience with cloud infrastructure, computing, and data engineering on Google Cloud Platform.',
     details: [
       'Earned multiple Skill Badges in Cloud Infrastructure, BigQuery, Compute Engine, and Kubernetes',
@@ -224,28 +157,47 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
 
 export const CERTIFICATIONS_DATA: Certification[] = [
   {
-    id: 'aws-cloud-practitioner',
-    title: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    issueDate: '2024',
-    credentialId: 'AWS-CCP-8942019',
-    skillsVerified: ['AWS Architecture', 'EC2', 'S3', 'IAM', 'Cloud Security']
+    id: 'gen-ai-101',
+    title: 'Gen AI 101',
+    issuer: 'FutureSkills Prime / Nasscom IT-ITeS SSC',
+    issueDate: '08 Apr 2026',
+    credentialId: 'FSP-GAI101-2026',
+    skillsVerified: ['Generative AI', 'AI Fundamentals', 'AI Competency Standards']
   },
   {
-    id: 'mongodb-associate',
-    title: 'MongoDB Associate Developer',
-    issuer: 'MongoDB, Inc.',
-    issueDate: '2024',
-    credentialId: 'MDB-DEV-55102',
-    skillsVerified: ['Document Modeling', 'Aggregation Framework', 'Index Optimization', 'Mongoose']
+    id: 'microsoft-intro-ai',
+    title: 'Introduction to AI Concepts',
+    issuer: 'Microsoft',
+    issueDate: 'December 25, 2025',
+    credentialId: 'MS-AI-2025-KG',
+    skillsVerified: ['Artificial Intelligence', 'AI Concepts', 'Machine Learning Fundamentals']
   },
   {
-    id: 'freecodecamp-web',
-    title: 'FreeCodeCamp Responsive Web Design',
-    issuer: 'FreeCodeCamp',
-    issueDate: '2023',
-    credentialId: 'FCC-RWD-77821',
-    skillsVerified: ['HTML5', 'CSS3 Grid/Flexbox', 'Accessibility (a11y)', 'Responsive Design']
+    id: 'quizoff-2026',
+    title: 'QuizOff 2026 - India\'s Biggest AI Quiz',
+    issuer: 'CampusCrew / Unstop',
+    issueDate: '19 July 2026',
+    credentialId: 'UNSTOP-QO2026-KG',
+    skillsVerified: ['Artificial Intelligence', 'AI Quiz Competition', 'Problem Solving']
+  }
+];
+
+export const HACKATHONS_DATA: Hackathon[] = [
+  {
+    id: 'ideathon-25',
+    title: 'IDEATHON\'25',
+    event: 'Inter University Innovation Challenge',
+    organizer: 'IILM University, Gurugram',
+    date: '18 November 2025',
+    description: 'Successfully participated in IDEATHON 2025 – Inter University Innovation Challenge, organized by the School of Computer Science & Engineering, Center of Excellence – Robotics & Automation at IILM University, Gurugram.'
+  },
+  {
+    id: 'codecraft-26',
+    title: 'CODECRAFT\'26',
+    event: 'Inter-University Project Showcasing Challenge',
+    organizer: 'IILM University, Gurugram',
+    date: '12 February 2026',
+    description: 'Successfully participated in CODECRAFT\'26 – Inter-University Project Showcasing Challenge, organized by the School of Computer Science and Engineering at IILM University, Gurugram.'
   }
 ];
 
@@ -254,8 +206,8 @@ export const USER_BIO = {
   tagline: 'BTech CSE Innovator',
   headline: 'Kanishka Gupta: BTech CSE Innovator',
   bio: 'I am a passionate BTech Computer Science student building precise, high-performance digital solutions. I combine strong foundational knowledge with premium modern design to deliver sophisticated enterprise-grade web applications.',
-  email: 'kanishkagupta2618@gmail.com',
-  github: 'https://github.com',
-  linkedin: 'https://linkedin.com',
+  email: 'kanishkagupta2607@gmail.com',
+  github: 'https://github.com/kanishka-2007-tech',
+  linkedin: 'https://www.linkedin.com/in/kanishka-gupta-7a3aa7380/',
   twitter: 'https://twitter.com'
 };

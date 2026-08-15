@@ -2,11 +2,10 @@ import React from 'react';
 import { USER_BIO } from '../data/portfolioData';
 
 interface HeroProps {
-  onOpenContact: () => void;
   onOpenResume: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   const scrollToWork = () => {
     const element = document.getElementById('work');
     if (element) {
@@ -14,8 +13,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
     }
   };
 
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="min-h-[640px] md:min-h-[716px] flex flex-col justify-center items-start mb-[80px] md:mb-[120px] relative pt-12 md:pt-20">
+    <section className="min-h-[640px] md:min-h-[716px] flex flex-col justify-center items-center text-center mb-[80px] md:mb-[120px] relative pt-12 md:pt-20">
       <div className="z-10 max-w-3xl">
         {/* Available for Innovation Chip */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d1c2d] border border-[#3131c0]/50 mb-6 text-xs font-label-sm text-[#00f0ff]">
@@ -46,7 +52,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
           </button>
 
           <button
-            onClick={onOpenContact}
+            onClick={scrollToContact}
             className="btn-ghost font-label-sm text-xs sm:text-sm px-6 py-3.5 rounded-lg cursor-pointer text-[#d4e4fa] border-[#d4e4fa]/40 hover:border-[#00f0ff] hover:text-[#00f0ff]"
           >
             Contact Me
@@ -58,22 +64,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onOpenResume }) => {
           >
             Read Credentials →
           </button>
-        </div>
-
-        {/* Highlight Key Metrics */}
-        <div className="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-[#3b494b]/30 max-w-lg">
-          <div>
-            <div className="font-geist text-xl sm:text-2xl font-bold text-[#00f0ff]">15+</div>
-            <div className="font-label-sm text-[11px] text-[#b9cacb] uppercase mt-1">PRs Merged</div>
-          </div>
-          <div>
-            <div className="font-geist text-xl sm:text-2xl font-bold text-[#00f0ff]">3+</div>
-            <div className="font-label-sm text-[11px] text-[#b9cacb] uppercase mt-1">Certifications</div>
-          </div>
-          <div>
-            <div className="font-geist text-xl sm:text-2xl font-bold text-[#00f0ff]">100%</div>
-            <div className="font-label-sm text-[11px] text-[#b9cacb] uppercase mt-1">Code Quality</div>
-          </div>
         </div>
       </div>
 

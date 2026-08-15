@@ -58,3 +58,12 @@ export interface Certification {
   badgeUrl?: string;
   skillsVerified: string[];
 }
+
+export interface Hackathon {
+  id: string;
+  title: string;
+  event: string;
+  organizer: string;
+  date: string;
+  description: string;
+}

@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { TechnicalArsenal } from './components/TechnicalArsenal';
 import { ExperienceAndAchievements } from './components/ExperienceAndAchievements';
 import { Certifications } from './components/Certifications';
+import { Hackathons } from './components/Hackathons';
 import { FeaturedProjects } from './components/FeaturedProjects';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
@@ -34,7 +35,7 @@ export default function App() {
   // IntersectionObserver for tracking active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['work', 'experience', 'technical-arsenal', 'certifications'];
+      const sections = ['work', 'experience', 'technical-arsenal', 'certifications', 'hackathons'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -68,7 +69,6 @@ export default function App() {
       <main className="flex-grow pt-28 sm:pt-32 pb-[120px] px-4 sm:px-8 md:px-16 max-w-[1280px] mx-auto w-full">
         {/* Hero Section */}
         <Hero
-          onOpenContact={() => setContactOpen(true)}
           onOpenResume={() => setResumeOpen(true)}
         />
 
@@ -80,6 +80,9 @@ export default function App() {
 
         {/* Certifications Section */}
         <Certifications />
+
+        {/* Hackathons Section */}
+        <Hackathons />
 
         {/* Featured Projects Section */}
         <FeaturedProjects
