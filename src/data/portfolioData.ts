@@ -138,6 +138,32 @@ export const PROJECTS_DATA: Project[] = [
       'Responsive interface for accessible use across devices',
       'Repository-linked project documentation and source code'
     ]
+  },
+  {
+    id: 'hospital-management-system',
+    title: 'Hospital Management System',
+    subtitle: 'Healthcare Operations & Patient Management Platform',
+    description: 'A healthcare management project designed to organize hospital operations, patient workflows, and essential medical services.',
+    fullDescription: 'The Hospital Management System brings core healthcare workflows into a structured digital platform, helping organize patient information, appointments, medical operations, and administrative tasks.',
+    tags: ['Healthcare', 'Management System', 'Full Stack'],
+    category: 'Full Stack',
+    isCodeSnippet: true,
+    codeSnippet: 'HOSPITAL MANAGEMENT SYSTEM\n\n> patient workflows: organized\n> hospital operations: streamlined\n> repository: github.com/kanishka-2007-tech/hospital-management-system',
+    linkText: 'GitHub Repository',
+    linkType: 'github',
+    githubUrl: 'https://github.com/kanishka-2007-tech/hospital-management-system',
+    features: [
+      'Centralized hospital and patient-management workflows',
+      'Structured handling of healthcare operations and records',
+      'Designed for clear coordination across hospital services',
+      'Source code and project details available on GitHub'
+    ],
+    architecture: [
+      'Modular structure for hospital-management functionality',
+      'Data-driven patient and operational workflows',
+      'Responsive interface for healthcare staff and users',
+      'Repository-linked source code and documentation'
+    ]
   }
 ];
 

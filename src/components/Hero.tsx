@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { USER_BIO } from '../data/portfolioData';
 
 interface HeroProps {
@@ -6,6 +6,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
+  const [photoAvailable, setPhotoAvailable] = useState(true);
+
   const scrollToWork = () => {
     const element = document.getElementById('work');
     if (element) {
@@ -23,6 +25,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
   return (
     <section className="min-h-[640px] md:min-h-[716px] flex flex-col justify-center items-center text-center mb-[80px] md:mb-[120px] relative pt-12 md:pt-20">
       <div className="z-10 max-w-3xl">
+        {/* Professional Photograph */}
+        <div className="flex flex-col items-center mb-8">
+          <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-br from-[#00f0ff] via-[#3131c0] to-transparent shadow-2xl shadow-[#00f0ff]/20">
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-[#051424] bg-[#0d1c2d] flex items-center justify-center">
+              {photoAvailable ? (
+                <img
+                  src="/professional-photo.jpg"
+                  alt="Professional portrait of Kanishka Gupta"
+                  className="w-full h-full object-cover"
+                  onError={() => setPhotoAvailable(false)}
+                />
+              ) : (
+                <span className="font-geist text-4xl sm:text-5xl font-bold text-[#00f0ff]">KG</span>
+              )}
+            </div>
+            <span className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-[#00f0ff] border-4 border-[#051424]" />
+          </div>
+          <span className="font-label-sm text-[10px] uppercase tracking-[0.22em] text-[#7df4ff]/70 mt-4">
+            Professional Profile
+          </span>
+        </div>
+
         {/* Available for Innovation Chip */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d1c2d] border border-[#3131c0]/50 mb-6 text-xs font-label-sm text-[#00f0ff]">
           <span className="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse" />
