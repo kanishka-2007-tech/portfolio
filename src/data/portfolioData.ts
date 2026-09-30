@@ -112,6 +112,32 @@ export const PROJECTS_DATA: Project[] = [
       'Role-based authentication and access control',
       'Responsive UI built with modern web technologies'
     ]
+  },
+  {
+    id: 'pharmasense',
+    title: 'PharmaSense',
+    subtitle: 'Healthcare & Pharmaceutical Intelligence Platform',
+    description: 'A healthcare-focused application designed to make pharmaceutical information easier to explore and understand.',
+    fullDescription: 'PharmaSense is a healthcare technology project focused on creating a clear, accessible digital experience for pharmaceutical information and related workflows.',
+    tags: ['Python', 'AI', 'Healthcare'],
+    category: 'Full Stack',
+    isCodeSnippet: true,
+    codeSnippet: 'PHARMASENSE // HEALTHCARE INTELLIGENCE\n\n> repository: github.com/kanishka-2007-tech/PharmaSense\n> status: ready to explore',
+    linkText: 'GitHub Repository',
+    linkType: 'github',
+    githubUrl: 'https://github.com/kanishka-2007-tech/PharmaSense',
+    features: [
+      'Focused digital experience for pharmaceutical information',
+      'Structured healthcare workflows and user-friendly presentation',
+      'Designed to make complex information easier to navigate',
+      'Source code and project details available on GitHub'
+    ],
+    architecture: [
+      'Modular application structure for healthcare-focused features',
+      'Data-driven presentation of pharmaceutical information',
+      'Responsive interface for accessible use across devices',
+      'Repository-linked project documentation and source code'
+    ]
   }
 ];
 

@@ -244,7 +244,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 </div>
               ) : (
                 <div className="p-6 rounded-xl bg-[#0d1c2d] border border-[#3b494b]/40 space-y-4">
-                  <h4 className="font-geist text-base font-bold text-[#d4e4fa]">CampusNexus Dashboard Preview</h4>
+                  <h4 className="font-geist text-base font-bold text-[#d4e4fa]">{project.title} Dashboard Preview</h4>
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className="p-3 bg-[#1c2b3c] rounded border border-[#3b494b]/30">
                       <div className="text-[#b9cacb] font-label-sm">Active Semester</div>
