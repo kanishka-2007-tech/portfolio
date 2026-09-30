@@ -12,7 +12,7 @@ export const SKILLS_DATA: Skill[] = [
     id: 'mysql',
     name: 'MySQL',
     category: 'Databases & Infrastructure',
-    level: 'Advanced',
+    level: 'Beginner',
     description: 'Relational database schema design, indexing, performance optimization, and complex SQL joins.'
   },
   {
@@ -54,35 +54,35 @@ export const SKILLS_DATA: Skill[] = [
     id: 'opencv',
     name: 'OpenCV',
     category: 'AI & Computer Vision',
-    level: 'Advanced',
+    level: 'Beginner',
     description: 'Real-time image processing, object detection, feature extraction, and computer vision filters.'
   },
   {
     id: 'mediapipe',
     name: 'MediaPipe',
     category: 'AI & Computer Vision',
-    level: 'Advanced',
+    level: 'Beginner',
     description: 'Cross-platform ML solutions for hand tracking, face mesh, landmark detection, and gesture recognition.'
   },
   {
     id: 'mongodb',
     name: 'MongoDB',
     category: 'Databases & Infrastructure',
-    level: 'Advanced',
+    level: 'Intermediate',
     description: 'NoSQL document database architecture, aggregation pipelines, schema indexing, and mongoose ODM.'
   },
   {
     id: 'nextjs',
     name: 'Next.js',
     category: 'Frameworks & Libraries',
-    level: 'Expert',
+    level: 'Intermediate',
     description: 'React application framework with App Router, SSR/SSG rendering, server actions, and API endpoints.'
   },
   {
     id: 'nodejs',
     name: 'Node.js',
     category: 'Frameworks & Libraries',
-    level: 'Expert',
+    level: 'Intermediate',
     description: 'Event-driven, non-blocking asynchronous backend servers with Express, REST APIs, and microservices.'
   }
 ];
