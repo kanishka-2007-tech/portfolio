@@ -2,7 +2,7 @@ export interface Skill {
   id: string;
   name: string;
   category: 'Languages' | 'Frameworks & Libraries' | 'AI & Computer Vision' | 'Databases & Infrastructure';
-  level: 'Expert' | 'Advanced' | 'Intermediate';
+  level: 'Expert' | 'Advanced' | 'Intermediate' | 'Beginner';
   icon?: string;
   description: string;
 }

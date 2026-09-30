@@ -5,7 +5,7 @@ export const SKILLS_DATA: Skill[] = [
     id: 'python',
     name: 'Python',
     category: 'Languages',
-    level: 'Expert',
+    level: 'Beginner',
     description: 'Core language for machine learning, computer vision (OpenCV, MediaPipe), scripts, and backend automation.'
   },
   {
@@ -19,14 +19,14 @@ export const SKILLS_DATA: Skill[] = [
     id: 'java',
     name: 'Java',
     category: 'Languages',
-    level: 'Advanced',
+    level: 'Intermediate',
     description: 'Object-oriented application development, data structures, algorithms, and enterprise backend engineering.'
   },
   {
     id: 'typescript',
     name: 'TypeScript',
     category: 'Languages',
-    level: 'Expert',
+    level: 'Beginner',
     description: 'Strict type safety across full-stack Node.js, Express, React, and Next.js applications.'
   },
   {
@@ -47,7 +47,7 @@ export const SKILLS_DATA: Skill[] = [
     id: 'c-programming',
     name: 'C Programming',
     category: 'Languages',
-    level: 'Advanced',
+    level: 'Intermediate',
     description: 'Low-level memory management, pointers, system data structures, and optimized hardware algorithms.'
   },
   {
@@ -89,32 +89,28 @@ export const SKILLS_DATA: Skill[] = [
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'smart-campus-hub',
-    title: 'SmartCampusHub',
+    id: 'campus-nexus',
+    title: 'CampusNexus',
     subtitle: 'Unified Campus Management Platform',
-    description: 'A comprehensive smart campus management system streamlining academic, administrative, and student lifecycle processes in a unified platform.',
-    fullDescription: 'SmartCampusHub is an end-to-end web architecture created to digitize college operations. It unifies course registration, attendance tracking, grading systems, departmental notices, and administrative ticket resolutions into a fast, responsive glassmorphic dashboard.',
+    description: 'A full-stack campus management platform for organizing academic workflows, student services, and campus operations.',
+    fullDescription: 'CampusNexus is a centralized campus platform designed to bring academic, administrative, and student-focused workflows into one connected digital experience.',
     tags: ['Next.js', 'MongoDB', 'TypeScript', 'Tailwind CSS'],
     category: 'Full Stack',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEflxrQKam4HYWieSgzwB6PiDx42PI6jgxsyKOzkuC6TBSe1oD1tRnAy2E3GP72PkdDDsD1iEXx4sbIFYMmxx1TC8ucUgEWqcxw-2i33MaKnxyIrprQvcb-9BP2FZwYBgDfsBybuSJoRQkWgobmaj5fHGdATR_cbrspX5yRYPkBRtxGLbWI5zHsSzk1qZzPcOP6rT5gt6W5FPaprCEzW1iySQBj0up36gu8MZzEuMB0QYwHWnhYiWe',
-    linkText: 'Case Study',
-    linkType: 'case-study',
+    linkText: 'GitHub Repository',
+    linkType: 'github',
+    githubUrl: 'https://github.com/kanishka-2007-tech/CampusNexus',
     features: [
-      'Real-time academic performance & GPA progression analytics',
-      'Automated attendance tracking with biometric / QR check-ins',
-      'Role-based access control (Student, Faculty, Admin, Dean)',
-      'Instant notification dispatch for urgent campus announcements'
+      'Centralized campus workflows and student services',
+      'Role-based access for students, faculty, and administrators',
+      'Academic and operational data organized in one platform',
+      'Responsive interface for everyday campus operations'
     ],
     architecture: [
-      'Next.js 14 App Router for server-rendered page performance',
-      'MongoDB Atlas cluster with optimized compound indices',
-      'JWT Authentication with httpOnly encrypted cookie sessions',
-      'Tailwind CSS Cybernetic Precision design tokens'
-    ],
-    stats: [
-      { label: 'Uptime', value: '99.9%' },
-      { label: 'Active Users', value: '4,500+' },
-      { label: 'Latency', value: '< 120ms' }
+      'Full-stack web architecture for campus operations',
+      'MongoDB-backed data persistence and querying',
+      'Role-based authentication and access control',
+      'Responsive UI built with modern web technologies'
     ]
   }
 ];

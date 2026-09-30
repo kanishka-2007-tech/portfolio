@@ -93,7 +93,7 @@ export const TechnicalArsenal: React.FC<TechnicalArsenalProps> = ({ onSelectSkil
                 <div
                   className="h-full bg-gradient-to-r from-[#3131c0] to-[#00f0ff]"
                   style={{
-                    width: activeModalSkill.level === 'Expert' ? '95%' : activeModalSkill.level === 'Advanced' ? '82%' : '70%'
+                    width: activeModalSkill.level === 'Expert' ? '95%' : activeModalSkill.level === 'Advanced' ? '82%' : activeModalSkill.level === 'Intermediate' ? '70%' : '55%'
                   }}
                 />
               </div>
