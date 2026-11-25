@@ -9,6 +9,9 @@
   --theme-accent: #00f0ff;
   --theme-border: rgba(255, 255, 255, 0.08);
   --theme-grid: rgba(255, 255, 255, 0.03);
+  --theme-control-border: #3131c0;
+  --theme-chip-bg: rgba(49, 49, 192, 0.2);
+  --theme-chip-text: #d4e4fa;
 }
 
 [data-theme='light'] {
@@ -20,6 +23,9 @@
   --theme-accent: #007c91;
   --theme-border: rgba(16, 36, 59, 0.14);
   --theme-grid: rgba(16, 36, 59, 0.06);
+  --theme-control-border: #007c91;
+  --theme-chip-bg: #d4e0eb;
+  --theme-chip-text: #17516a;
 }
 
 [data-theme='cyberpunk'] {
@@ -31,6 +37,9 @@
   --theme-accent: #ff2bd6;
   --theme-border: rgba(255, 43, 214, 0.28);
   --theme-grid: rgba(255, 43, 214, 0.08);
+  --theme-control-border: #a51cbb;
+  --theme-chip-bg: rgba(165, 28, 187, 0.24);
+  --theme-chip-text: #fff1ff;
 }
 
 [data-theme='gaming'] {
@@ -42,6 +51,9 @@
   --theme-accent: #7dff4f;
   --theme-border: rgba(125, 255, 79, 0.22);
   --theme-grid: rgba(125, 255, 79, 0.07);
+  --theme-control-border: #398f2b;
+  --theme-chip-bg: rgba(57, 143, 43, 0.25);
+  --theme-chip-text: #e7ffe9;
 }
 
 @layer base {
@@ -167,8 +179,8 @@
 }
 
 .btn-ghost {
-  border: 1px solid #3131c0;
-  color: #d4e4fa;
+  border: 1px solid var(--theme-control-border);
+  color: var(--theme-text);
   transition: all 0.25s ease;
 }
 
@@ -179,9 +191,9 @@
 }
 
 .chip {
-  background-color: rgba(49, 49, 192, 0.2);
-  border: 1px solid #3131c0;
-  color: #d4e4fa;
+  background-color: var(--theme-chip-bg);
+  border: 1px solid var(--theme-control-border);
+  color: var(--theme-chip-text);
   transition: all 0.2s ease;
 }
 
