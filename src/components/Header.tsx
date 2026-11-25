@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { ThemeSelector } from './ThemeSelector';
 
 interface HeaderProps {
   onOpenResume: () => void;
-  onOpenContact: () => void;
+  onScrollToContact: () => void;
   onOpenCertifications: () => void;
   onOpenTerminal: () => void;
   activeSection: string;
@@ -10,7 +11,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({
   onOpenResume,
-  onOpenContact,
+  onScrollToContact,
   onOpenCertifications,
   onOpenTerminal,
   activeSection
@@ -36,13 +37,13 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-20 border-b ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[1180px] h-16 rounded-2xl border transition-all duration-300 shadow-xl shadow-[#010f1f]/30 ${
         scrolled
-          ? 'bg-[#051424]/90 backdrop-blur-md border-[#3b494b]/40 shadow-lg shadow-[#010f1f]/50'
-          : 'bg-[#051424]/50 backdrop-blur-md border-[#3b494b]/30'
+          ? 'bg-[#051424]/95 backdrop-blur-md border-[#3b494b]/50'
+          : 'bg-[#051424]/80 backdrop-blur-md border-[#3b494b]/40'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto h-full px-4 sm:px-8 md:px-16 flex items-center justify-between">
+      <div className="h-full px-4 sm:px-6 md:px-8 flex items-center justify-between">
         {/* Brand Name */}
         <a
           href="#"
@@ -79,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
             About
           </button>
           <button
-            onClick={onOpenContact}
+            onClick={onScrollToContact}
             className={`font-body-md text-base transition-all duration-200 cursor-pointer ${
               activeSection === 'contact'
                 ? 'text-[#00f0ff] font-bold border-b-2 border-[#00f0ff] pb-1'
@@ -98,6 +99,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right CTA Actions */}
         <div className="hidden md:flex items-center gap-4">
+          <ThemeSelector />
           <button
             onClick={onOpenTerminal}
             title="Open Developer CLI (Cmd+K)"
@@ -170,13 +172,14 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={() => {
               setMobileMenuOpen(false);
-              onOpenContact();
+              onScrollToContact();
             }}
             className="text-left py-2 font-headline-md text-lg text-[#d4e4fa] hover:text-[#00f0ff]"
           >
             Contact
           </button>
           <div className="pt-2 border-t border-[#3b494b]/30 flex items-center gap-3">
+            <ThemeSelector />
             <button
               onClick={() => {
                 setMobileMenuOpen(false);

@@ -1,9 +1,53 @@
 @import "tailwindcss";
 
+:root {
+  --theme-bg: #051424;
+  --theme-surface: rgba(30, 41, 59, 0.45);
+  --theme-surface-hover: rgba(30, 41, 59, 0.75);
+  --theme-text: #d4e4fa;
+  --theme-muted: #b9cacb;
+  --theme-accent: #00f0ff;
+  --theme-border: rgba(255, 255, 255, 0.08);
+  --theme-grid: rgba(255, 255, 255, 0.03);
+}
+
+[data-theme='light'] {
+  --theme-bg: #eef5fb;
+  --theme-surface: rgba(255, 255, 255, 0.75);
+  --theme-surface-hover: rgba(255, 255, 255, 0.95);
+  --theme-text: #10243b;
+  --theme-muted: #52677b;
+  --theme-accent: #007c91;
+  --theme-border: rgba(16, 36, 59, 0.14);
+  --theme-grid: rgba(16, 36, 59, 0.06);
+}
+
+[data-theme='cyberpunk'] {
+  --theme-bg: #16051f;
+  --theme-surface: rgba(48, 13, 67, 0.62);
+  --theme-surface-hover: rgba(69, 14, 89, 0.82);
+  --theme-text: #fff1ff;
+  --theme-muted: #d7a9d8;
+  --theme-accent: #ff2bd6;
+  --theme-border: rgba(255, 43, 214, 0.28);
+  --theme-grid: rgba(255, 43, 214, 0.08);
+}
+
+[data-theme='gaming'] {
+  --theme-bg: #07150e;
+  --theme-surface: rgba(15, 44, 28, 0.65);
+  --theme-surface-hover: rgba(19, 68, 39, 0.85);
+  --theme-text: #e7ffe9;
+  --theme-muted: #a6c9ae;
+  --theme-accent: #7dff4f;
+  --theme-border: rgba(125, 255, 79, 0.22);
+  --theme-grid: rgba(125, 255, 79, 0.07);
+}
+
 @layer base {
   body {
-    background-color: #051424;
-    color: #d4e4fa;
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
     font-family: 'Inter', sans-serif;
     position: relative;
     min-height: 100vh;
@@ -17,8 +61,8 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image: linear-gradient(to right, var(--theme-grid) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--theme-grid) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: -1;
   }
@@ -33,18 +77,66 @@
 }
 
 .glass-card {
-  background: rgba(30, 41, 59, 0.45);
+  background: var(--theme-surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--theme-border);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(30, 41, 59, 0.75);
-  border-color: rgba(0, 240, 255, 0.25);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.12);
+  background: var(--theme-surface-hover);
+  border-color: color-mix(in srgb, var(--theme-accent) 35%, transparent);
+  box-shadow: 0 0 25px color-mix(in srgb, var(--theme-accent) 18%, transparent);
 }
+
+.theme-selector {
+  border: 1px solid var(--theme-border);
+  background: var(--theme-surface);
+}
+
+.theme-selector-circle {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  transition: all 0.25s ease;
+}
+
+.theme-selector-circle:hover {
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--theme-accent) 24%, transparent);
+  transform: translateY(-1px);
+}
+
+.theme-selector select option {
+  background: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+[data-theme='light'] .text-\[\#d4e4fa\] { color: var(--theme-text) !important; }
+[data-theme='light'] .text-\[\#b9cacb\] { color: var(--theme-muted) !important; }
+[data-theme='light'] [class*="text-[#d4e4fa]"] { color: var(--theme-text) !important; }
+[data-theme='light'] [class*="text-[#b9cacb]"] { color: var(--theme-muted) !important; }
+[data-theme='light'] [class*="text-[#6f8589]"] { color: #52677b !important; }
+[data-theme='light'] .bg-\[\#051424\] { background-color: var(--theme-bg) !important; }
+[data-theme='light'] .bg-\[\#051424\]\/50 { background-color: color-mix(in srgb, var(--theme-bg) 50%, transparent) !important; }
+[data-theme='light'] .bg-\[\#051424\]\/90 { background-color: color-mix(in srgb, var(--theme-bg) 90%, transparent) !important; }
+[data-theme='light'] .bg-\[\#0d1c2d\] { background-color: #dce8f2 !important; }
+[data-theme='light'] .text-\[\#00f0ff\] { color: var(--theme-accent) !important; }
+[data-theme='light'] [class*="text-[#00f0ff]"] { color: var(--theme-accent) !important; }
+[data-theme='light'] [class*="bg-[#0d1c2d]"] { background-color: #dce8f2 !important; }
+[data-theme='light'] [class*="bg-[#1c2b3c]"] { background-color: #cfdeea !important; }
+[data-theme='light'] [class*="border-[#3131c0]"] { border-color: #007c91 !important; }
+[data-theme='light'] .border-\[\#3b494b\]\/30,
+[data-theme='light'] .border-\[\#3b494b\]\/40,
+[data-theme='light'] .border-\[\#3b494b\]\/50 { border-color: var(--theme-border) !important; }
+
+[data-theme='cyberpunk'] .text-\[\#00f0ff\] { color: var(--theme-accent) !important; }
+[data-theme='cyberpunk'] .bg-\[\#00f0ff\] { background-color: var(--theme-accent) !important; }
+[data-theme='cyberpunk'] .border-\[\#00f0ff\] { border-color: var(--theme-accent) !important; }
+[data-theme='gaming'] .text-\[\#00f0ff\] { color: var(--theme-accent) !important; }
+[data-theme='gaming'] .bg-\[\#00f0ff\] { background-color: var(--theme-accent) !important; }
 
 .card-laser-border {
   position: relative;

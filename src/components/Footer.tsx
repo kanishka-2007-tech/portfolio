@@ -2,11 +2,10 @@ import React from 'react';
 import { USER_BIO } from '../data/portfolioData';
 
 interface FooterProps {
-  onOpenContact: () => void;
   onOpenResume: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenContact, onOpenResume }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenResume }) => {
   return (
     <footer id="contact" className="bg-[#051424] border-t border-[#3b494b]/30 w-full py-12 px-4 sm:px-8 md:px-16 mt-20">
       <div className="max-w-[1280px] mx-auto">

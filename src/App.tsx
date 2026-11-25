@@ -8,7 +8,6 @@ import { Hackathons } from './components/Hackathons';
 import { FeaturedProjects } from './components/FeaturedProjects';
 import { ProjectModal } from './components/ProjectModal';
 import { ResumeModal } from './components/ResumeModal';
-import { ContactModal } from './components/ContactModal';
 import { TerminalDrawer } from './components/TerminalDrawer';
 import { Footer } from './components/Footer';
 import { Project } from './types';
@@ -17,7 +16,6 @@ export default function App() {
   const [isCertificationsPage, setIsCertificationsPage] = useState(() => window.location.pathname === '/certifications');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
-  const [contactOpen, setContactOpen] = useState<boolean>(false);
   const [terminalOpen, setTerminalOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('work');
 
@@ -31,6 +29,10 @@ export default function App() {
     window.history.pushState({}, '', '/');
     setIsCertificationsPage(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function App() {
       {/* Top Header */}
       <Header
         onOpenResume={() => setResumeOpen(true)}
-        onOpenContact={() => setContactOpen(true)}
+        onScrollToContact={scrollToContact}
         onOpenCertifications={openCertificationsPage}
         onOpenTerminal={() => setTerminalOpen(true)}
         activeSection={activeSection}
@@ -117,7 +119,6 @@ export default function App() {
 
       {/* Footer */}
       <Footer
-        onOpenContact={() => setContactOpen(true)}
         onOpenResume={() => setResumeOpen(true)}
       />
 
@@ -132,11 +133,6 @@ export default function App() {
         onClose={() => setResumeOpen(false)}
       />
 
-      <ContactModal
-        isOpen={contactOpen}
-        onClose={() => setContactOpen(false)}
-      />
-
       <TerminalDrawer
         isOpen={terminalOpen}
         onClose={() => setTerminalOpen(false)}
@@ -144,9 +140,9 @@ export default function App() {
           setTerminalOpen(false);
           setResumeOpen(true);
         }}
-        onOpenContact={() => {
+        onScrollToContact={() => {
           setTerminalOpen(false);
-          setContactOpen(true);
+          scrollToContact();
         }}
       />
     </div>

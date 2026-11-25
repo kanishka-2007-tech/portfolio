@@ -5,7 +5,7 @@ interface TerminalDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenResume: () => void;
-  onOpenContact: () => void;
+  onScrollToContact: () => void;
 }
 
 interface CommandLog {
@@ -17,7 +17,7 @@ export const TerminalDrawer: React.FC<TerminalDrawerProps> = ({
   isOpen,
   onClose,
   onOpenResume,
-  onOpenContact
+  onScrollToContact
 }) => {
   const [inputVal, setInputVal] = useState('');
   const [logs, setLogs] = useState<CommandLog[]>([
@@ -62,7 +62,7 @@ export const TerminalDrawer: React.FC<TerminalDrawerProps> = ({
             <div><span className="text-[#00f0ff] font-bold">skills</span> - List technical arsenal & proficiencies</div>
             <div><span className="text-[#00f0ff] font-bold">projects</span> - View featured projects</div>
             <div><span className="text-[#00f0ff] font-bold">experience</span> - View open source & background</div>
-            <div><span className="text-[#00f0ff] font-bold">contact</span> - Open contact message prompt</div>
+            <div><span className="text-[#00f0ff] font-bold">contact</span> - Find LinkedIn and GitHub</div>
             <div><span className="text-[#00f0ff] font-bold">resume</span> - Open curriculum vitae</div>
             <div><span className="text-[#00f0ff] font-bold">clear</span> - Clear terminal window</div>
           </div>
@@ -86,8 +86,9 @@ export const TerminalDrawer: React.FC<TerminalDrawerProps> = ({
         break;
 
       case 'contact':
-        onOpenContact();
-        output = `Opening contact form... Direct email: ${USER_BIO.email}`;
+        onClose();
+        onScrollToContact();
+        output = 'Opening LinkedIn and GitHub links...';
         break;
 
       case 'resume':
