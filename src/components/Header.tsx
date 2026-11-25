@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 interface HeaderProps {
   onOpenResume: () => void;
   onOpenContact: () => void;
+  onOpenCertifications: () => void;
   onOpenTerminal: () => void;
   activeSection: string;
 }
@@ -10,6 +11,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   onOpenResume,
   onOpenContact,
+  onOpenCertifications,
   onOpenTerminal,
   activeSection
 }) => {
@@ -86,6 +88,12 @@ export const Header: React.FC<HeaderProps> = ({
           >
             Contact
           </button>
+          <button
+            onClick={onOpenCertifications}
+            className="font-body-md text-base transition-all duration-200 cursor-pointer text-[#b9cacb] hover:text-[#00f0ff]"
+          >
+            Certifications
+          </button>
         </nav>
 
         {/* Right CTA Actions */}
@@ -149,6 +157,15 @@ export const Header: React.FC<HeaderProps> = ({
             className="text-left py-2 font-headline-md text-lg text-[#d4e4fa] hover:text-[#00f0ff]"
           >
             Technical Arsenal
+          </button>
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              onOpenCertifications();
+            }}
+            className="text-left py-2 font-headline-md text-lg text-[#d4e4fa] hover:text-[#00f0ff]"
+          >
+            Certifications
           </button>
           <button
             onClick={() => {

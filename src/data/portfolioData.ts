@@ -205,6 +205,26 @@ export const ACHIEVEMENTS_DATA: AchievementItem[] = [
 
 export const CERTIFICATIONS_DATA: Certification[] = [
   {
+    id: 'nptel-soft-skills-leadership-iks',
+    title: 'Developing Soft Skills and Leadership through Indian Knowledge System',
+    issuer: 'Indian Institute of Technology, Roorkee',
+    issueDate: 'Nov 2026',
+    credentialId: '612315426',
+    credentialUrl: 'https://www.linkedin.com/in/kanishka-gupta-7a3aa7380/overlay/Certifications/612315426/treasury/?profileId=ACoAAF4iVasB_IBrfNpgp7TLsdJEB8e_RKb4RK0',
+    badgeUrl: 'https://media.licdn.com/dms/image/v2/D562DAQFl9mQw-bMs1Q/profile-treasury-document-cover-images_480/B56aGkfmiYJQA8-/0/1793761112137?e=1796209200&v=beta&t=SxWpiVbigo1qYoxuGf7Com-7VLajAdKTDVT7kdhVvZE',
+    skillsVerified: ['Soft Skills', 'Communication Ethics']
+  },
+  {
+    id: 'power-bi-analytics-solutions',
+    title: 'Design and manage analytics solutions using Power BI',
+    issuer: 'Microsoft',
+    issueDate: 'Aug 2026',
+    credentialId: '1295976065',
+    credentialUrl: 'https://www.linkedin.com/in/kanishka-gupta-7a3aa7380/overlay/Certifications/1295976065/treasury/?profileId=ACoAAF4iVasB_IBrfNpgp7TLsdJEB8e_RKb4RK0',
+    badgeUrl: 'https://media.licdn.com/dms/image/v2/D4D2DAQEO9SrVUajJZw/profile-treasury-image-shrink_160_160/B4DaBNPvnLIQAg-/0/1788002368194?e=1796209200&v=beta&t=faqDFr8EcacCp2WDfAY5aSQrATO3ydEl7_1Xv1ZO1uM',
+    skillsVerified: ['Microsoft Power BI']
+  },
+  {
     id: 'gen-ai-101',
     title: 'Gen AI 101',
     issuer: 'FutureSkills Prime / Nasscom IT-ITeS SSC',

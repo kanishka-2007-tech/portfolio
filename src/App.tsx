@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TechnicalArsenal } from './components/TechnicalArsenal';
 import { ExperienceAndAchievements } from './components/ExperienceAndAchievements';
-import { Certifications } from './components/Certifications';
+import { CertificationsPage } from './components/CertificationsPage';
 import { Hackathons } from './components/Hackathons';
 import { FeaturedProjects } from './components/FeaturedProjects';
 import { ProjectModal } from './components/ProjectModal';
@@ -14,11 +14,30 @@ import { Footer } from './components/Footer';
 import { Project } from './types';
 
 export default function App() {
+  const [isCertificationsPage, setIsCertificationsPage] = useState(() => window.location.pathname === '/certifications');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
   const [contactOpen, setContactOpen] = useState<boolean>(false);
   const [terminalOpen, setTerminalOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('work');
+
+  const openCertificationsPage = () => {
+    window.history.pushState({}, '', '/certifications');
+    setIsCertificationsPage(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const closeCertificationsPage = () => {
+    window.history.pushState({}, '', '/');
+    setIsCertificationsPage(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handlePopState = () => setIsCertificationsPage(window.location.pathname === '/certifications');
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Handle Cmd+K / Ctrl+K shortcut for Terminal
   useEffect(() => {
@@ -55,12 +74,17 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  if (isCertificationsPage) {
+    return <CertificationsPage onBack={closeCertificationsPage} />;
+  }
+
   return (
     <div className="font-body-md text-body-md antialiased min-h-screen flex flex-col relative selection:bg-[#00f0ff] selection:text-black">
       {/* Top Header */}
       <Header
         onOpenResume={() => setResumeOpen(true)}
         onOpenContact={() => setContactOpen(true)}
+        onOpenCertifications={openCertificationsPage}
         onOpenTerminal={() => setTerminalOpen(true)}
         activeSection={activeSection}
       />
@@ -77,9 +101,6 @@ export default function App() {
 
         {/* Experience & Achievements Section */}
         <ExperienceAndAchievements />
-
-        {/* Certifications Section */}
-        <Certifications />
 
         {/* Hackathons Section */}
         <Hackathons />

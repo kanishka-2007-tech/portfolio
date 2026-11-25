@@ -56,6 +56,7 @@ export interface Certification {
   issueDate: string;
   credentialId: string;
   badgeUrl?: string;
+  credentialUrl?: string;
   skillsVerified: string[];
 }
 

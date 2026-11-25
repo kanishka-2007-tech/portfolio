@@ -1,9 +1,56 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CERTIFICATIONS_DATA } from '../data/portfolioData';
 import { Certification } from '../types';
+import { fetchLinkedInCertifications, LINKEDIN_SYNC_CONFIGURED } from '../services/linkedinSync';
 
-export const Certifications: React.FC = () => {
+const CERTIFICATIONS_STORAGE_KEY = 'portfolio.linkedin.certifications';
+const SYNCED_AT_STORAGE_KEY = 'portfolio.linkedin.certifications.syncedAt';
+
+interface CertificationsProps {
+  onViewAll?: () => void;
+}
+
+export const Certifications: React.FC<CertificationsProps> = ({ onViewAll }) => {
+  const [certifications, setCertifications] = useState<Certification[]>(CERTIFICATIONS_DATA);
   const [activeCert, setActiveCert] = useState<Certification | null>(null);
+  const [syncState, setSyncState] = useState<'idle' | 'syncing' | 'success' | 'error'>('idle');
+  const [syncMessage, setSyncMessage] = useState('');
+  const [lastSyncedAt, setLastSyncedAt] = useState<string | null>(null);
+
+  const syncFromLinkedIn = async () => {
+    setSyncState('syncing');
+    setSyncMessage('Checking LinkedIn for new certifications…');
+
+    try {
+      const result = await fetchLinkedInCertifications();
+      setCertifications(result.certifications.length ? result.certifications : CERTIFICATIONS_DATA);
+      localStorage.setItem(CERTIFICATIONS_STORAGE_KEY, JSON.stringify(result.certifications));
+      localStorage.setItem(SYNCED_AT_STORAGE_KEY, result.syncedAt);
+      setLastSyncedAt(result.syncedAt);
+      setSyncState('success');
+      setSyncMessage(`${result.certifications.length} certification${result.certifications.length === 1 ? '' : 's'} synced`);
+    } catch (error) {
+      setSyncState('error');
+      setSyncMessage(error instanceof Error ? error.message : 'LinkedIn sync is unavailable right now.');
+    }
+  };
+
+  useEffect(() => {
+    const storedCertifications = localStorage.getItem(CERTIFICATIONS_STORAGE_KEY);
+    const storedSyncedAt = localStorage.getItem(SYNCED_AT_STORAGE_KEY);
+
+    if (storedCertifications) {
+      try {
+        const parsed = JSON.parse(storedCertifications) as Certification[];
+        if (Array.isArray(parsed) && parsed.length) setCertifications(parsed);
+      } catch {
+        localStorage.removeItem(CERTIFICATIONS_STORAGE_KEY);
+      }
+    }
+
+    if (storedSyncedAt) setLastSyncedAt(storedSyncedAt);
+    if (LINKEDIN_SYNC_CONFIGURED) void syncFromLinkedIn();
+  }, []);
 
   return (
     <section id="certifications" className="mb-[80px] md:mb-[120px]">
@@ -12,10 +59,36 @@ export const Certifications: React.FC = () => {
           <h2 className="font-geist text-2xl md:text-3xl font-bold text-[#d4e4fa]">Certifications</h2>
           <p className="font-body-md text-sm text-[#b9cacb] mt-1">Industry-recognized technical accreditations & verified skill credentials</p>
         </div>
+        <div className="flex flex-col items-end gap-2">
+          {onViewAll && (
+            <button type="button" onClick={onViewAll} className="font-label-sm text-[11px] text-[#00f0ff] hover:text-[#d4e4fa] transition-colors">
+              View full archive →
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={syncFromLinkedIn}
+            disabled={syncState === 'syncing'}
+            className="btn-ghost font-label-sm text-[11px] px-3 py-2 rounded-lg flex items-center gap-2 disabled:opacity-60"
+          >
+            <span className={`material-symbols-outlined text-sm ${syncState === 'syncing' ? 'animate-spin' : ''}`}>sync</span>
+            {syncState === 'syncing' ? 'Syncing…' : 'Sync LinkedIn'}
+          </button>
+          {syncMessage && (
+            <span className={`font-label-sm text-[10px] text-right max-w-[260px] ${syncState === 'error' ? 'text-amber-300' : 'text-emerald-300'}`}>
+              {syncMessage}
+            </span>
+          )}
+          {lastSyncedAt && syncState !== 'error' && (
+            <span className="font-label-sm text-[10px] text-[#6f8589]">
+              Last synced {new Date(lastSyncedAt).toLocaleString()}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {CERTIFICATIONS_DATA.map((cert) => (
+        {certifications.map((cert) => (
           <div
             key={cert.id}
             onClick={() => setActiveCert(cert)}
